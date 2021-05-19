@@ -1,0 +1,36 @@
+{
+	"name": "pynie-bot",
+	"version": "1.0.0",
+	"description": "Pynie is a manager bot for you and your server. Enjoy it!",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sirlucasm/pynie-bot.git"
+	},
+	"keywords": [
+		"bot",
+		"discord",
+		"bot",
+		"discord",
+		"manage",
+		"servers",
+		"bot"
+	],
+	"author": "sirlucasm",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/sirlucasm/pynie-bot/issues"
+	},
+	"homepage": "https://github.com/sirlucasm/pynie-bot#readme",
+	"dependencies": {
+		"discord.js": "^12.5.3",
+		"dotenv": "^9.0.2"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.7"
+	}
+}
