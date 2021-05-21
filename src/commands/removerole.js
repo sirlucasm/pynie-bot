@@ -1,13 +1,13 @@
 module.exports = {
-    name: 'giverole',
-	description: 'Add a role to an user on Server',
-    aliases: ['giveRole', 'give_role'],
+    name: 'removerole',
+	description: 'Remove a role to an user on Server',
+    aliases: ['removeRole', 'remove_role'],
 	expectedArgs: '<User @mention> <Role name>',
 	permisions: 'MANAGE_ROLES_OR_PERMISSIONS',
     async execute(client, message, args) {
 		const userMention = message.mentions.users.first();
 		if (!userMention) {
-			message.reply('Please specify someone to give a role to');
+			message.reply('Please specify someone to remove a role to');
 			return;
 		}
 		const mention = args.shift();
@@ -24,15 +24,13 @@ module.exports = {
 		}
 
 		const memberMentioned = guild.members.cache.get(userMention.id);
-		memberMentioned.roles.add(role)
-			.then(() => {
-				if (!memberMentioned.roles.cache.has(role.id)) {
-					message.reply(`Congrats!🎉🎉\nThe user${mention} is now a ${roleName}`);
-				} else message.reply(`The user already have this role`);
-			})
-			.catch(error => {
-				console.log(error);
-				message.reply(`You do not have permissions`);
-			});
+		if (memberMentioned.roles.cache.has(role.id)) {
+			memberMentioned.roles.remove(role)
+				.then(() => message.reply(`😔 The user${mention} is no more a ${roleName}`))
+				.catch(error => {
+					console.log(error);
+					message.reply(`You do not have permissions`);
+				});
+		} else message.reply(`This user do not have this role`);
 	}
 }
