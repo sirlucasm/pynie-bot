@@ -24,11 +24,10 @@ module.exports = {
 		}
 
 		const memberMentioned = guild.members.cache.get(userMention.id);
-		if (memberMentioned.roles.add(role)) {
-			message.reply(`Congrats!🎉🎉\nThe user${mention} is now a ${roleName}`);
-		} else {
-			message.reply(`this user already have the role ${roleName}`);
-		}
+		memberMentioned.roles.add(role)
+			.then(() => message.reply(`Congrats!🎉🎉\nThe user${mention} is now a ${roleName}`))
+			.catch(console.error);
+		// message.reply(`this user already have the role ${roleName}`);
 
 	}
 }
