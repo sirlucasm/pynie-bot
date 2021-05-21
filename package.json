@@ -29,7 +29,8 @@
 	"homepage": "https://github.com/sirlucasm/pynie-bot#readme",
 	"dependencies": {
 		"discord.js": "^12.5.3",
-		"dotenv": "^9.0.2"
+		"dotenv": "^9.0.2",
+		"express": "^4.17.1"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.7"
