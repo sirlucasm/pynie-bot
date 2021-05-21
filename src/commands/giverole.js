@@ -3,7 +3,7 @@ module.exports = {
 	description: 'Add a role to an user on Server',
     aliases: ['teste', 'testeeee'],
 	expectedArgs: '<User @mention> <Role name>',
-	permisions: 'ADMINISTRATOR',
+	permisions: 'MANAGE_ROLES_OR_PERMISSIONS',
     async execute(client, message, args) {
 		const userMention = message.mentions.users.first();
 		if (!userMention) {
